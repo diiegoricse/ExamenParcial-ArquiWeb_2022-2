@@ -22,6 +22,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { OffersCountComponent } from './page/offers/offers-count/offers-count.component';
+import { OffersCreaeditaComponent } from './page/offers/offers-creaedita/offers-creaedita.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { OffersCountComponent } from './page/offers/offers-count/offers-count.co
     OffersComponent,
     OffersListarComponent,
     NavBarComponent,
-    OffersCountComponent
+    OffersCountComponent,
+    OffersCreaeditaComponent
   ],
   imports: [
     BrowserModule,

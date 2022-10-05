@@ -1,0 +1,41 @@
+<div class="container">
+
+    <h1>Create/Update Offer</h1>
+    <mat-form-field class="example-full-width">
+        <mat-label>id</mat-label>
+        <input matInput placeholder="id" [(ngModel)]="offers.id">
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>title</mat-label>
+        <input matInput required placeholder="title" [(ngModel)]="offers.title">
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>description</mat-label>
+        <input matInput placeholder="description" [(ngModel)]="offers.description">
+
+    </mat-form-field>
+
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>points</mat-label>
+        <input type="text" matInput required placeholder="points" [(ngModel)]="offers.points">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>businessId</mat-label>
+        <input type="text" matInput placeholder="businessId" [(ngModel)]="offers.businessId">
+    </mat-form-field>
+
+    <br>
+    <button mat-raised-button color="primary" (click)="aceptar()">Accept</button>
+    <button mat-raised-button color="warn" routerLink="/business/offers">Cancel</button>
+    <p>{{mensaje}}</p>
+
+</div>
