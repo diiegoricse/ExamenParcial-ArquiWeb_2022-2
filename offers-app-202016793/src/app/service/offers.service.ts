@@ -23,4 +23,11 @@ export class OffersService {
   getLista() {
     return this.listaCambio.asObservable();
   }
+  //
+  modificar(offer: Offers) {
+    return this.http.put(this.url + "/" + offer.id, offer);
+  }
+  listarId(id: number) {
+    return this.http.get<Offers>(`${this.url}/${id}`);
+  }
 }

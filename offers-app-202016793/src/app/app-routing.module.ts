@@ -13,6 +13,10 @@ const routes: Routes = [{
 },{
   path: 'admin/offers/new', component: OffersCreaeditaComponent, children: [
   ]
+},
+{
+  path: 'admin/offers/edit/:id', component: OffersCreaeditaComponent, children: [
+  ]
 }
 ];
 

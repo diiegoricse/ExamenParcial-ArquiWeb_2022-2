@@ -13,13 +13,17 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class OffersListarComponent implements OnInit {
   dataSource: MatTableDataSource<Offers> = new MatTableDataSource();
-  displayedColumns: string[] = ['id', 'title','description','points','businessId'];
+  displayedColumns: string[] = ['id', 'title','description','points','businessId','edit'];
   
   constructor(private ps: OffersService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.ps.listar().subscribe(data => { 
       this.dataSource = new MatTableDataSource(data);
+    });
+    this.ps.getLista().subscribe(data => {
+      this.dataSource = new MatTableDataSource(data);
+
     });
   }
 
