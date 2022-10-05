@@ -1,10 +1,11 @@
 import { OffersDialogoComponent } from './offers-dialogo/offers-dialogo.component';
 import { Offers } from './../../../model/Offers';
 import { OffersService } from './../../../service/offers.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { MatTableDataSource } from '@angular/material/table'
 import { MatDialog } from '@angular/material/dialog';
+
 
 
 @Component({
@@ -17,6 +18,7 @@ export class OffersListarComponent implements OnInit {
   displayedColumns: string[] = ['id', 'title','description','points','businessId','edit','delete'];
   private idMayor: number = 0;
   
+
   constructor(private ps: OffersService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -44,5 +46,7 @@ export class OffersListarComponent implements OnInit {
       });
     });
   }
+
+
 
 }
