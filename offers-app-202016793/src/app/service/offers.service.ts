@@ -7,7 +7,9 @@ import { Subject } from 'rxjs';
 })
 export class OffersService {
   url: string = "http://localhost:3000/Offers";
-  private listaCambio = new Subject<Offers[]>()
+  private listaCambio = new Subject<Offers[]>();
+  private confirmaEliminacion  = new Subject<Boolean>();
+
 
   constructor(private http: HttpClient) { }
   listar() {
@@ -29,5 +31,15 @@ export class OffersService {
   }
   listarId(id: number) {
     return this.http.get<Offers>(`${this.url}/${id}`);
+  }
+  //
+  eliminar(id: number) {
+    return this.http.delete(this.url + "/" + id);
+  }
+  getConfirmaEliminacion() {
+    return this.confirmaEliminacion.asObservable();
+  }
+  setConfirmaEliminacion(estado: Boolean) {
+    this.confirmaEliminacion.next(estado);
   }
 }

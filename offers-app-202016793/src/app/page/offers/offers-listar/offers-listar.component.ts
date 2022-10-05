@@ -1,3 +1,4 @@
+import { OffersDialogoComponent } from './offers-dialogo/offers-dialogo.component';
 import { Offers } from './../../../model/Offers';
 import { OffersService } from './../../../service/offers.service';
 import { Component, OnInit } from '@angular/core';
@@ -13,7 +14,8 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class OffersListarComponent implements OnInit {
   dataSource: MatTableDataSource<Offers> = new MatTableDataSource();
-  displayedColumns: string[] = ['id', 'title','description','points','businessId','edit'];
+  displayedColumns: string[] = ['id', 'title','description','points','businessId','edit','delete'];
+  private idMayor: number = 0;
   
   constructor(private ps: OffersService, private dialog: MatDialog) { }
 
@@ -24,6 +26,22 @@ export class OffersListarComponent implements OnInit {
     this.ps.getLista().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
 
+    });
+    this.ps.getConfirmaEliminacion().subscribe(data => {
+      data == true ? this.eliminar(this.idMayor) : false;
+    });
+  }
+  confirmar(id: number) {
+    this.idMayor = id;
+    this.dialog.open(OffersDialogoComponent);
+  }
+
+
+  eliminar(id: number) {
+    this.ps.eliminar(id).subscribe(() => {
+      this.ps.listar().subscribe(data => {
+        this.ps.setLista(data);
+      });
     });
   }
 

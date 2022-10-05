@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OffersService } from 'src/app/service/offers.service';
 
 @Component({
   selector: 'app-offers-count',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./offers-count.component.css']
 })
 export class OffersCountComponent implements OnInit {
-
-  constructor() { }
+  total :number=0;
+  constructor(private ps: OffersService) { }
 
   ngOnInit(): void {
+    this.total = this.ps.getLista().subscribe.length;
   }
 
 }
